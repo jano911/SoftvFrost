@@ -1,8 +1,13 @@
 'use strict';
+
+/// Modulo para el controlador de Detalle de Memoria Tecnica Reportes
 angular
   .module('softvFrostApp')
   .controller('detallememoriatecnicaServicioCtrl',
     function ($state, ngNotify, memoriaServicioFactory, memoriaFactory, $localStorage, $stateParams, FileUploader, globalService, Lightbox) {
+      
+      /// Inicializa el controlador, ejecuta los procedimientos correspondientes para obtener la información
+      /// de los detalles de la memoria técnica
       function initialData() {
         memoriaServicioFactory.GetObtieneMemoriaTecnica(vm.id).then(function (data) {
           detalle(data.GetObtieneMemoriaTecnicaServicioResult[0]);
@@ -79,6 +84,7 @@ angular
         });
       }
 
+      /// Procedimiento sin uso
       function getApartos(modem, radio, router, antena, ups, idtecnico) {
         /*
           memoriaServicioFactory.GetAparatosTecnico(1, vm.numeroorden, idtecnico, vm.IdMemoriaTecnica).then(function (aparatos) {
@@ -178,7 +184,7 @@ angular
           });*/
       }
 
-
+      /// Obtiene listado de técnicos correspondientes a la memoria técnica junto con su información relacionada
       function getTecnicos(id, idtecnico, Modem, Radio, Router, Antena, UPS) {
         memoriaServicioFactory.GetTecnicosMemoriaTecnica(id, 'C', vm.IdMemoriaTecnica).then(function (tecnicos) {
           vm.listTecnicos = tecnicos.GetTecnicosMemoriaTecnicaServicioResult;
@@ -192,6 +198,7 @@ angular
         });
       }
 
+      /// Obtiene la información detallada de la memoria técnica de reportes correspondiente
       function detalle(det) {
         vm.usuariosistema = det.Instalador;
         vm.Apuntamiento = det.Apuntamiento;

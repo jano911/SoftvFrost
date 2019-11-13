@@ -1,4 +1,6 @@
 'use strict';
+
+/// Modulo para el controlador de Nueva Memoria Técnica
 angular
   .module("softvFrostApp")
   .controller("nuevamemoriatecnicaCtrl", function (
@@ -132,6 +134,8 @@ angular
 
     vm.FiltrarLista = FiltrarLista;
 
+    /// Inicializa el controlador, obtiene la información para llenar los controladores de selección para el
+    /// registro de nuevas memorias técnicas
     function initialData() {
       var fechaHoy = new Date();
       vm.fechasitio = $filter('date')(fechaHoy, 'dd/MM/yyyy');
@@ -168,6 +172,7 @@ angular
       });
     }
 
+    /// Valida que todos los datos capturados sean correctos para el registro de la memoria
     function getValidationdata(obj) {
       var results = obj;
       vm.celular = results.Celular;
@@ -208,8 +213,8 @@ angular
       getTecnicos(vm.contratocompania.split('-')[1]);
     }
 
-
-
+    /// Realiza las validaciones de los datos capturados y de las opciones seleccionadas para proceder a registrar
+    /// la memoria técnica
     function validar() {
       memoriaFactory.GetObtieneDatosPorOrden(vm.numeroorden).then(function (result) {
         console.log('GetObtieneDatosPorOrden', result);
@@ -247,6 +252,7 @@ angular
       });
     }
 
+    /// Permite cargar archivos de tipo imagen para cargarlos a la memoria técnica
     vm.uploader = new FileUploader({
       filters: [{
         name: "yourName1", fn: function (item) {
@@ -275,6 +281,7 @@ angular
       ]
     });
 
+    /// Permite cargar archivos de tipo imagen para cargarlos a la memoria técnica
     vm.uploaderVS = new FileUploader({
       filters: [{
         name: "yourName1", fn: function (item) {
@@ -303,12 +310,14 @@ angular
       ]
     });
 
+    /// Valida que los aparatos digitales correspondientes sean correctos para la memoria técnica
     function validaAparatodig(serie) {
       var count = 0;
       vm.aparatosdigitales.forEach(function (item) { count += (item.SerieAnterior === serie) ? 1 : 0; });
       return (count > 0) ? true : false;
     }
 
+    /// Añade el aparato digital seleccionado a la relación con la memoria técnica
     function addAparatodig() {
 
       if (vm.aparatosdigitales.length + 1 <= vm.NoSTB) {
@@ -330,18 +339,21 @@ angular
       }
     }
 
+    /// Elimina el aparato digital seleccionado de la memoria técnica
     function eliminaaparatodig(index) {
       if (index > -1) {
         vm.aparatosdigitales.splice(index, 1);
       }
     }
 
+    /// Elimina la nota seleccionada de la memoria técnica
     function eliminaNota(index) {
       if (index > -1) {
         vm.notas.splice(index, 1);
       }
     }
 
+    /// Validacion para revisar si el archivo cargado es correscto
     vm.uploader.onAfterAddingFile = function (fileItem) {
       fileItem.file.idtipo = vm.tipoimagen.IdTipo;
       fileItem.file.tipo = vm.tipoimagen.Nombre;
@@ -350,6 +362,7 @@ angular
       fileItem.IdUsuario = $localStorage.currentUser.idUsuario;
     };
 
+    /// Validacion para revisar si el archivo cargado es correscto
     vm.uploaderVS.onAfterAddingFile = function (fileItem) {
       fileItem.file.idtipo = vm.tipoimagenValidacion.IdTipo;
       fileItem.file.tipo = vm.tipoimagenValidacion.Nombre;
@@ -358,6 +371,7 @@ angular
       fileItem.IdUsuario = $localStorage.currentUser.idUsuario;
     };
 
+    /// Obtiene lista de los técnicos registrados para la lista de selección en el registro de memorias técnicas
     function getTecnicos(id) {
 
       memoriaFactory.GetTecnicosMemoriaTecnica(id, 'N', 0).then(function (tecnicos) {
@@ -366,6 +380,7 @@ angular
       });
     }
 
+    /// Guarda el detalle de los aparatos en base al técnico
     function detalleTecnico() {
       vm.listModem = [];
       vm.listRadio = [];
@@ -378,6 +393,7 @@ angular
       getApartos();
     }
 
+    /// Obtiene listado de aparatos relacionados según el técnico
     function getApartos() {
       if (vm.OrdenInstalacion) {
         memoriaFactory.GetAparatosTecnico(1, vm.numeroorden, vm.instalador.IdEntidad, 0).then(function (aparatos) {
@@ -417,19 +433,21 @@ angular
       }
     }
 
-
+    /// Elimina la imagen seleccionado de la relación de la memoria técnica
     function BorraImagen(index) {
       if (index > -1) {
         vm.cambios.splice(index, 1);
       }
     }
 
+    /// Elimina el aparato de la relación de la memoria técnica
     function eliminaaparato(index) {
       if (index > -1) {
         vm.cambios.splice(index, 1);
       }
     }
 
+    /// Modifica la información de los aparatos relacionados a la memoria técnica
     function cambioAparato() {
       if (vm.AparatoAnterior && vm.EquipoSustituir && vm.AparatoNuevo) {
         if (vm.AparatoAnterior.Descripcion !== vm.AparatoNuevo.Descripcion) {
@@ -465,10 +483,12 @@ angular
       }
     }
 
+    /// Valida que el valor recibido no esté vacío o sea nulo
     function isvalid(value) {
       return value !== undefined && value !== "" && value !== null ? true : false;
     }
 
+    /// Guarda la nota capturada en la memoria técnica
     function guardaNota() {
       var obj = {};
       obj.Observacion = vm.detallenota;
@@ -480,6 +500,8 @@ angular
       vm.detallenota = '';
     }
 
+    /// Almacena y registra la nueva memoria técnica con toda su información capturada, archivos cargados y
+    /// opciones seleccionadas
     function guardar() {
       if((vm.PersonaAtiendeSitio == undefined || vm.TelefonoAtiendeSitio == undefined || vm.CelularAtiendeSitio == undefined  || vm.EmailAtiendeSitio == undefined) ||
       (vm.PersonaAtiendeSitio == '' || vm.TelefonoAtiendeSitio == ''|| vm.CelularAtiendeSitio == ''  || vm.EmailAtiendeSitio == ''))
@@ -757,6 +779,7 @@ angular
       });
     }
 
+    /// Filtra la lista correspondiente en base a los filtros de búsqueda seleccionados
     function FiltrarLista(Lista, Titulo) {
       var modalInstance = $uibModal.open({
         animation: true,
@@ -797,6 +820,7 @@ angular
       });
     }
 
+    /// Actualiza los datos mostrados provenientes de Hughes
     function ActualizarDatosHughes() {
       var parametros = {};
       parametros.Clv_Orden = vm.numeroorden;

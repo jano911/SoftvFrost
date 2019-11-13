@@ -1,4 +1,6 @@
 'use strict';
+
+/// Módulo para Nuevos Pools IP
 angular.module('softvFrostApp').controller('nuevoPoolsCtrl', nuevoPoolsCtrl);
 
 function nuevoPoolsCtrl($state, ngNotify, $timeout, configuracionIPFactory) {
@@ -8,6 +10,9 @@ function nuevoPoolsCtrl($state, ngNotify, $timeout, configuracionIPFactory) {
     vm.EliminaServicio = EliminaServicio;
     vm.ServiciosAsignados = [];
     vm.ContieneFree = false;
+
+    /// Inicializa el controlador, obtiene los datos para los campos de selección para el registro de un nuevo
+    /// pool de direcciones IP
     this.$onInit = function () {
         configuracionIPFactory.GetBeamList().then(function (data) {
             vm.Beams = data.GetBeamListResult;
@@ -25,6 +30,7 @@ function nuevoPoolsCtrl($state, ngNotify, $timeout, configuracionIPFactory) {
         });
     }
 
+    /// Valida el formato de la IP ingresada
     function ValidateIPaddress(ipaddress) {
         if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress)) {
             return (true)
@@ -32,6 +38,7 @@ function nuevoPoolsCtrl($state, ngNotify, $timeout, configuracionIPFactory) {
         return (false)
     }
 
+    /// Agrega el servicio seleccionado al pool de direcciones que se va a registrar
     function AgregarServicio() {
         if (vm.Servicio != undefined) {
             var bnd = true;
@@ -60,6 +67,8 @@ function nuevoPoolsCtrl($state, ngNotify, $timeout, configuracionIPFactory) {
         }
     }
 
+    /// Elimina el servicio seleccionado de la lista de servicios asignados al pool de direcciones que se va a
+    /// registrar
     function EliminaServicio(Servicio) {
         if (Servicio.IdServicio == 0) {
             vm.ContieneFree = false;
@@ -74,6 +83,7 @@ function nuevoPoolsCtrl($state, ngNotify, $timeout, configuracionIPFactory) {
         vm.ServiciosAsignados.splice(indexAux, 1);
     }
 
+    /// Almacena y registra el pool de direcciones IP con la información capturada y las relaciones creadas
     function GuardaPool() {
         if (ValidateIPaddress(vm.IP)) {
             if (vm.MascaraRed > 0 && vm.MascaraRed <= 32) {

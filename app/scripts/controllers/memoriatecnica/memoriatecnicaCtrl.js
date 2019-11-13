@@ -1,9 +1,12 @@
 'use strict';
+
+/// Modulo para el controlador de Memoria Tecnica
 angular
   .module('softvFrostApp')
   .controller('memoriatecnicaCtrl', function ($state, ngNotify, memoriaFactory, moment, $firebaseArray,
     firebase, globalService, $q, $window, $localStorage, $uibModal) {
 
+    /// Inicializa el controlador, obtiene la informacion de las memorias tecnicas registradas
     function initialData() {
       vm.RolUsuario = $localStorage.currentUser.idRol;
       BuscaMemoriaTecnica(0);
@@ -13,6 +16,7 @@ angular
       });
     }
 
+    /// Busca los detalles de cada memoria técnica registrada para mostrarlas en el sistema
     function BuscaMemoriaTecnica(op) {
       var params = {
         'Folio': (op === 1) ? vm.folio : '',
@@ -37,7 +41,7 @@ angular
         });
     }
 
-
+    /// Genera el reporte de la memoria técnica seleccionada en formato pdf para poderlo exportar
     function reportepdf(id) {
 
       vm.url = '';
@@ -80,6 +84,7 @@ angular
 
     }
 
+    /// Genera el reporte de la memoria técnica en formato XLS para poder exportarlo
     function getreportexls(id) {
       vm.url = '';
       memoriaFactory.GetReportexls(id).then(function (data) {
@@ -97,6 +102,7 @@ angular
 
     }
 
+    /// Genera una nueva memoria técnica de servicios con la información correspondiente
     function add() {
       alert('add');
       var ref = firebase
@@ -113,6 +119,7 @@ angular
       });
     }
 
+    /// Elimina el nodo de firebase en base al índice indicado
     function deletechild() {
       var id = vm.deletetest;
       GetdataFire().then(function (result) {
@@ -133,6 +140,7 @@ angular
       .ref()
       .child('messages');
 
+    /// Obtiene los registros almacenados en la base de datos de Firebase
     function GetdataFire() {
       var defered = $q.defer();
       var promise = defered.promise;
@@ -149,6 +157,7 @@ angular
       return promise;
     }
 
+    /// Elimina un nodo correspondiente de Firebase en base al índice indicado
     function deleteFile(index) {
       var defered = $q.defer();
       var promise = defered.promise;
@@ -165,6 +174,7 @@ angular
 
     }
 
+    /// Llena la lista de memorias técnicas en base a los filtros seleccionados
     function FiltrarLista() {
       var Lista = [];
       vm.listTecnicos.forEach(function (item) {

@@ -1,8 +1,11 @@
 'use strict';
+
+/// Módulo para el controlador Antena
 angular.module('softvFrostApp').controller('AntenaCtrl', AntenaCtrl);
 
 function AntenaCtrl(catalogosMemoriaFactory, $state, ngNotify) {
 
+  /// Procedimiento de inicialización del controlador, obtiene lista de antenas registradas
   function Init() {
     vm.AntenasEliminar = [];
     catalogosMemoriaFactory.GetObtieneAntenasCatalogo().then(function (data) {
@@ -10,6 +13,7 @@ function AntenaCtrl(catalogosMemoriaFactory, $state, ngNotify) {
     });
   }
 
+  /// Agrega una nueva antena mientras no exista registrada
   function Agregar() {
     var tipoAux = {};
     var Agrega = true;
@@ -29,6 +33,7 @@ function AntenaCtrl(catalogosMemoriaFactory, $state, ngNotify) {
     }
   }
 
+  /// Elimina la antena mientras no exista una memoria técnica que asocie a esa antena
   function ElimnarTipo(Antena) {
     if (Antena.IdTipo > 0 && Antena.ExisteAntena == true) {
       ngNotify.set('Ya se ha guardado una memoria técnica con esta Antena, no se puede eliminar', 'warn');
@@ -47,6 +52,8 @@ function AntenaCtrl(catalogosMemoriaFactory, $state, ngNotify) {
     }
   }
 
+  /// Guarda lo cambios realizados a las antenas registradas en el sistema, ya sea si se tienen que eliminar
+  /// o agregar antenas
   function Guardar() {
     var parametros = {};
     parametros.Antenas = vm.Antenas;

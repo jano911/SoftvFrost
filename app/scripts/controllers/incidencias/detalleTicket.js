@@ -1,6 +1,8 @@
 'use strict';
 
 function DetalleTicketCtrl($uibModalInstance, $localStorage, ticket, incidenciasFactory, $filter, ngNotify, $state) {
+	
+	/// Inicializa el controlador, obtiene los datos de detalles del ticket correspondiente
 	function initial() {
 		vm.fecha = new Date();
 		vm.showFirstTab = function() {
@@ -27,6 +29,7 @@ function DetalleTicketCtrl($uibModalInstance, $localStorage, ticket, incidencias
 		});
 	}
 
+	/// Realiza validación del archivo correspondiente
 	function ValidaArchivo() {
 		
 	var	files = $('#inputFile2').get(0).files;
@@ -35,10 +38,12 @@ function DetalleTicketCtrl($uibModalInstance, $localStorage, ticket, incidencias
 		});
 	}
 
+	/// Imprime "avance" en la consola
 	function avanceTicket() {
 		console.log('avance');
 	}
 
+	/// Cierra el ticket correspondiente registrando datos como fecha e información relacionada
 	function closeTicket() {
 		vm.fechaCierre = new Date();
 		vm.auxFecha = $filter('date')(vm.fechaCierre, 'yyyy/MM/dd HH:mm:ss');
@@ -59,6 +64,7 @@ function DetalleTicketCtrl($uibModalInstance, $localStorage, ticket, incidencias
 		});
 	}
 
+	/// Cancela el procedimiento actual
 	function cancel() {
 		$uibModalInstance.dismiss('cancel');
 	}
@@ -71,4 +77,5 @@ function DetalleTicketCtrl($uibModalInstance, $localStorage, ticket, incidencias
 	initial();
 }
 
+/// Modulo para el controlador de Detalle Ticket
 angular.module('softvFrostApp').controller('DetalleTicketCtrl', DetalleTicketCtrl);

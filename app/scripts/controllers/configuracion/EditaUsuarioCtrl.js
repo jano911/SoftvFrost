@@ -1,4 +1,6 @@
 'use strict';
+
+/// Módulo para el controlador Edita Usuario
 angular.module('softvFrostApp').controller('EditaUsuarioCtrl', EditaUsuarioCtrl);
 
 function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $stateParams) {
@@ -23,7 +25,7 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
   vm.obtendetalle=obtendetalle;
   vm.Activo = false;
 
-
+  /// Inicializa el controlador, obtiene los datos y configuraciones del usuario que se va a editar
   this.$onInit = function () {
     var userid = $stateParams.id;
     usuarioFactory.GetDistribuidores().then(function (data) {
@@ -59,14 +61,14 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
     });
   }
 
+  /// Obtiene lista de plazas disponibles para el cliente
   function getplazasClienteDisp(){
 		usuarioFactory.GetObtieneCompaniasLibres(vm.Id,vm.distribuidorcliente.Clave).then(function (data) {
 			vm.PlazasClienteDis = data.GetObtieneCompaniasLibresResult;
 		});		
 	}
 
-
-
+  /// Almacena la relación creada entre el cliente y el distribuidor y plaza seleccionados
 	function guardaRelacionCliente(){
 		var arr=[];
 		arr.push({
@@ -80,7 +82,7 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
 		});
 	}
 
-
+  /// Elimina la relación de técnico y distribuidor del cliente
   function eliminaRelacion(item) {
     var tecnicos = [];
     var tec = {
@@ -94,6 +96,7 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
     });
   }
 
+  /// Almacena la relacion entre el cliente y el distribuidor y téncico seleccionados
   function guardaRelacion() {
     var tecnicos = [];
     var tec = {
@@ -108,25 +111,28 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
     });
   }
 
+  /// Obtiene una lista de técnicos disponibles para el cliente
   function getTecnicosDisponibles() {
     usuarioFactory.GetObtieneTecnicosLibres(vm.Id, vm.plaza.Clave, vm.distribuidor.Clave).then(function (data) {
       vm.tecnicoslibres = data.GetObtieneTecnicosLibresResult;
     });
   }
 
+  /// Obtiene lista de todas las plazas registradas
   function getplazas() {
     usuarioFactory.GetPlazas(vm.distribuidor.Clave).then(function (data) {
       vm.Plazas = data.GetPlazasResult;
     });
   }
 
+  /// Obtiene lista de todos los técnicos registrados por usuario
   function getUsuariostecnicos() {
     usuarioFactory.GetObtieneTecnicosUsuario(vm.Id).then(function (data) {
       vm.tecnicosUsuario = data.GetObtieneTecnicosUsuarioResult;
     });
   }
 
-
+  /// Obtiene lista de detalle de plazas o técnicos en base al cliente seleccionado
   function obtendetalle(){
     if(vm.Cliente){
       GetObtieneCompaniasUsuario();
@@ -135,8 +141,7 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
     }
  }
 
-
-
+  /// Actualiza y guarda los cambios realizados en el usuario correspondiente
   function GuardarUsuario() {
     if (vm.editar) {
       if (vm.Contrasena === vm.Contrasena2) {
@@ -182,6 +187,7 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
 
   }
 
+  /// Elimina la relación de plaza y distribuidor del cliente
 	function eliminaRelacionCliente(x){
 		var arr=[];
 		arr.push({
@@ -195,13 +201,14 @@ function EditaUsuarioCtrl(usuarioFactory, rolFactory, $state, ngNotify, $statePa
 		});
   }
   
+  /// Obtiene listado de distribuidores para lista de selección para egregar relación de técnicos
   function GetObtieneCompaniasUsuario(){
 		usuarioFactory.GetObtieneCompaniasUsuario(vm.Id).then(function(result){
           vm.relacionCliente=result.GetObtieneCompaniasUsuarioResult;
 		});
 	}
 
-
+  /// Valida que la contraseña capturada sea correcta para poder ser actualizada
   function ValidaPass() {
     if (vm.PassValidate === vm.Password) {
       vm.editar = true;
