@@ -1,9 +1,13 @@
 'use strict';
+
+/// Modulo para el controlador Mapa Beams
 angular
   .module('softvFrostApp')
   .controller('MapaTerminalesCtrl', MapaTerminalesCtrl);
 
 function MapaTerminalesCtrl($uibModal, SuscriptorFactory, terminalFactory, $rootScope, ngNotify, NgMap, mapaBeamFactory, globalService, $state) {
+  
+  /// Inicializa el controlador, muestra los detalles de los beam junto con los mapas que abarca
   this.$onInit = function () {
 
     mapaBeamFactory.GetBeamList().then(function (data) {
@@ -17,6 +21,8 @@ function MapaTerminalesCtrl($uibModal, SuscriptorFactory, terminalFactory, $root
       google.maps.event.trigger(vm.map, 'resize');
     });
   }
+
+  /// Obtiene las coordenadas de longitud y latitud de cada una de las terminales dentro del beam
   function ObtenerCoordenadasTerminales(terminales, beamid) {
      vm.Terminales = [];
     for (var i = 0; i < terminales.length; i++) {
@@ -35,6 +41,7 @@ function MapaTerminalesCtrl($uibModal, SuscriptorFactory, terminalFactory, $root
 
   }
 
+  /// Obtiene la información detallada de una terminal determinada
   function DetalleTerminal(x) {
 
     var id = hughesGetSanCompuesto(this.id);
@@ -42,6 +49,8 @@ function MapaTerminalesCtrl($uibModal, SuscriptorFactory, terminalFactory, $root
       'id': id
     });
     }
+
+  /// Genera el SAN compuesto para Hughes en base a un SAN determinado
   function hughesGetSanCompuesto(obj) {
     var a = obj.toString();
     var i;
@@ -51,6 +60,7 @@ function MapaTerminalesCtrl($uibModal, SuscriptorFactory, terminalFactory, $root
     return globalService.getType() + a;
   };
 
+  /// Obtiene la información detallada del beam correspondiente
   function DetalleBeam(obj) {
      vm.BeamId=obj.BeamId;
       var a = obj.BeamId.toString();
@@ -73,6 +83,7 @@ function MapaTerminalesCtrl($uibModal, SuscriptorFactory, terminalFactory, $root
     });
     google.maps.event.trigger(vm.map, 'resize');
   }
+
   var vm = this;
   vm.DetalleBeam = DetalleBeam;
   vm.Terminales = [];

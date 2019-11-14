@@ -1,9 +1,12 @@
 'use strict';
+
+/// Modulo para el controlador de OVT Sign Off
 angular
 	.module('softvFrostApp')
 	.controller('OVTSingOffCtrl',
 		function($uibModalInstance, $uibModal, token, OVTFactory, ngNotify) {
 
+			/// Inicializa el controlador, obtiene la información correspondiente
 			this.$onInit = function() {
 				
 				var objv = {};
@@ -43,10 +46,12 @@ angular
 				});
 			}
 
+			/// Cancela el procedimiento actual
 			function cancel() {
 				$uibModalInstance.dismiss('cancel');
 			}
 
+			/// Realiza el procedimiento de Sign Off configurando los datos correspondientes
 			function SingOff() {
 				var data2 = {
 					"signOffData": null,

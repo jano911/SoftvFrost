@@ -1,7 +1,12 @@
 'use strict';
+
+/// Modulo para el controlador de Atención Detalle
 angular
 	.module('softvFrostApp')
 	.controller('AtencionDetalleCtrl', function($uibModal, $state, atencionFactory, $stateParams) {
+
+    /// Inicializa el controlador, obtiene los detalles de las atenciones telefonicas para mostrarse en el
+    /// sistema
 		function initialData() {
       atencionFactory.serviciosNuevo().then(function (data) {
         vm.servicios = data.GetMuestraTipSerPrincipal2ListResult;
@@ -72,6 +77,7 @@ angular
       });
     }
 
+  /// Abre la vista para los tickets de pago del contrato del cliente
 	function abrirPagos() {
       if (vm.GlobalContrato == null) {
         ngNotify.set('Establezca el contrato del cliente para obtener información', 'error');
@@ -95,6 +101,7 @@ angular
       });
     }
 
+  /// Abre el reporte de historial del contrato del cliente
 	function openHistorial() {
       if (vm.GlobalContrato == null) {
         ngNotify.set('Establezca el contrato del cliente para Obtener información', 'error');
@@ -118,6 +125,7 @@ angular
       });
     }
 
+  /// Abre la ventana de cobro del detalle para el contrato delc lciente
 	function abrirDetalleCobro() {
       if (vm.GlobalContrato == null) {
         ngNotify.set('Establezca el contrato del cliente para obtener la información', 'error');

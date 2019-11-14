@@ -1,4 +1,6 @@
 "use strict";
+
+/// Modulo para el controlador de Diagnostico
 angular
   .module("softvFrostApp")
   .controller("DiagnosticCtrl", function (
@@ -10,6 +12,8 @@ angular
     terminalFactory,
     $localStorage
   ) {
+
+    /// Inicializa el controlador, Muestra la información necesaria para la pantalla de Diagnostico
     this.$onInit = function () {
       diagnosticFactory.getLoginUid().then(function (data) {
         
@@ -21,6 +25,7 @@ angular
       vm.IdRol = $localStorage.currentUser.idRol;
     };
 
+    /// Autcompleta el SAN capturado para obtener el SAN compuesto correspondiente
     function hughesGetSanCompuesto(obj) {
       var a = obj.toString();
       var i;
@@ -30,12 +35,14 @@ angular
       return globalService.getType() + a;
     }
 
+    /// Obtiene el token correspondiente
     function GetToken() {
       diagnosticFactory.getLoginUid().then(function (data) {
         vm.token = data[0].loginuuid;
       });
     }
 
+    /// Realiza la búsqueda de los datos correspondientes al SAN capturado
     function searchSan() {
       terminalFactory.GetValidaSANUsuario(vm.san).then(function (data) {
         
@@ -75,6 +82,7 @@ angular
 
     }
 
+    /// Obtiene la acción recomendada para el SAN buscado
     function recommendedAction() {
       var sanData = {
         token: vm.token,
@@ -90,6 +98,7 @@ angular
       });
     }
 
+    /// Realiza la acción correspondiente dependiendo del tipo de acción
     function acctionButtons(param) {
       var sanData = {
         token: vm.token,
