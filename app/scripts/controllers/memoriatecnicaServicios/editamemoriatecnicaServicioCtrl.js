@@ -537,7 +537,11 @@ angular
           'PersonaAtiendeSitio': vm.PersonaAtiendeSitio,
           'TelefonoAtiendeSitio': vm.TelefonoAtiendeSitio,
           'CelularAtiendeSitio': vm.CelularAtiendeSitio,
-          'EmailAtiendeSitio': vm.EmailAtiendeSitio
+          'EmailAtiendeSitio': vm.EmailAtiendeSitio,
+          'PersonaAtiendeSitio2': vm.PersonaAtiendeSitio2,
+          'TelefonoAtiendeSitio2': vm.TelefonoAtiendeSitio2,
+          'CelularAtiendeSitio2': vm.CelularAtiendeSitio2,
+          'EmailAtiendeSitio2': vm.EmailAtiendeSitio2
         };
 
         var file_options = [];
@@ -719,6 +723,11 @@ angular
         vm.TelefonoAtiendeSitio = det.TelefonoAtiendeSitio == undefined ? '' : det.TelefonoAtiendeSitio;
         vm.CelularAtiendeSitio = det.CelularAtiendeSitio == undefined ? '' : det.CelularAtiendeSitio;
         vm.EmailAtiendeSitio = det.EmailAtiendeSitio == undefined ? '' : det.EmailAtiendeSitio;
+
+        vm.PersonaAtiendeSitio2 = det.PersonaAtiendeSitio2 == undefined ? '' : det.PersonaAtiendeSitio2;
+        vm.TelefonoAtiendeSitio2 = det.TelefonoAtiendeSitio2 == undefined ? '' : det.TelefonoAtiendeSitio2;
+        vm.CelularAtiendeSitio2 = det.CelularAtiendeSitio2 == undefined ? '' : det.CelularAtiendeSitio2;
+        vm.EmailAtiendeSitio2 = det.EmailAtiendeSitio2 == undefined ? '' : det.EmailAtiendeSitio2;
         getTecnicos(vm.contratocompania.split('-')[1], det.IdTecnico, det.Modem, det.Radio, det.Router, det.AntenaSerie, det.UPS);
         vm.titulo = 'Edición de memoria técnica de reporte #' + vm.IdMemoriaTecnica;
       }

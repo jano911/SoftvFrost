@@ -450,13 +450,13 @@
         <div class="col-md-12" style="margin-left:10px;" ng-if="($ctrl.IdRol == 1 || $ctrl.IdRol == 2 || $ctrl.IdRol == 7 || $ctrl.IdRol == 23)">
           <button class="btn btn-sm btn-default" ng-if="$ctrl.IdRol != 23" ng-click="$ctrl.acctionButtons('Current_Stats')">Get Curren Stats</button>
           <button class="btn btn-sm btn-default" ng-click="$ctrl.acctionButtons('Force_range')">Force Range</button>
-          <button class="btn btn-sm btn-default" ng-if="$ctrl.IdRol != 23" ng-click="$ctrl.acctionButtons('Clear_Term_Stats')">Clear Terminal Stats</button>
+          <button class="btn btn-sm btn-default" ng-click="$ctrl.acctionButtons('Clear_Term_Stats')">Clear Terminal Stats</button>
           <button class="btn btn-sm btn-default" ng-if="$ctrl.IdRol != 23" ng-click="$ctrl.acctionButtons('Reregister')">Register</button>
           <button class="btn btn-sm btn-default" ng-if="$ctrl.IdRol != 23" ng-click="$ctrl.acctionButtons('Reload_tables')">Reload Tables</button>
           <button class="btn btn-sm btn-default" ng-if="$ctrl.IdRol != 23" ng-click="$ctrl.acctionButtons('Force_fallback')">Force Fallback</button>
           <button class="btn btn-sm btn-default" ng-click="$ctrl.acctionButtons('Reboot')">Reboot</button>
-          <button class="btn btn-sm btn-default" ng-if="$ctrl.IdRol != 23" ng-click="$ctrl.acctionButtons('Reassociate')">Re-Associate</button>
-          <button class="btn btn-sm btn-default" ng-if="$ctrl.IdRol != 23" ng-click="$ctrl.acctionButtons('Clear_PEP_Stats')">Clear PEP Stats</button>
+          <button class="btn btn-sm btn-default" ng-click="$ctrl.acctionButtons('Reassociate')">Re-Associate</button>
+          <button class="btn btn-sm btn-default" ng-click="$ctrl.acctionButtons('Clear_PEP_Stats')">Clear PEP Stats</button>
         </div>
         <div class="col-md-12" style="padding-top:10px; padding-left:20px; padding-right:10px;">
           <table class="table table-bordered">

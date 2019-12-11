@@ -55,15 +55,15 @@ angular.module('softvFrostApp')
   /*
     //rutas locales
      svc.getUrl = function () {
-      //return  'http://localhost:64481/SoftvWCFService.svc';
-      return 'http://192.168.50.122:8020/SoftvWCFService.svc';
+      return  'http://localhost:64481/SoftvWCFService.svc';
+      //return 'http://192.168.50.122:8020/SoftvWCFService.svc';
       //return 'http://172.16.126.44:8089/SoftvWCFService.svc';
       //return  'http://localhost:80/SoftvWCFService.svc';
     };
 
     svc.getUrlReportes = function () {
-      return 'http://192.168.50.122:8020';
-      //return  'http://localhost:64481/SoftvWCFService.svc';
+      //return 'http://192.168.50.122:8020';
+      return  'http://localhost:64481/SoftvWCFService.svc';
       //return  'http://localhost:80';
     };
 
@@ -148,8 +148,8 @@ angular.module('softvFrostApp')
      svc.getType = function () {
        return 'TEV';
      }; 
-  
- */
+  */
+ 
   
     return svc;
   });

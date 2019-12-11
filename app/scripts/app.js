@@ -157,9 +157,9 @@ angular
       }; 
   
 
-/*
-        //PRODUCTION
 
+        //PRODUCTION
+/*
          var config = {
           apiKey: "AIzaSyAYdB8E1qTsBG9BN3bcbsPgnatIALFHalg",
           authDomain: "boss-10e7a.firebaseapp.com",

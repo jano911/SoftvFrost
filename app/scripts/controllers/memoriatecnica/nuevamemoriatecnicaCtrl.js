@@ -587,7 +587,11 @@ angular
           PersonaAtiendeSitio: vm.PersonaAtiendeSitio,
           TelefonoAtiendeSitio: vm.TelefonoAtiendeSitio,
           CelularAtiendeSitio: vm.CelularAtiendeSitio,
-          EmailAtiendeSitio: vm.EmailAtiendeSitio
+          EmailAtiendeSitio: vm.EmailAtiendeSitio,
+          PersonaAtiendeSitio2: vm.PersonaAtiendeSitio2,
+          TelefonoAtiendeSitio2: vm.TelefonoAtiendeSitio2,
+          CelularAtiendeSitio2: vm.CelularAtiendeSitio2,
+          EmailAtiendeSitio2: vm.EmailAtiendeSitio2
         };
       }
       else {
@@ -663,7 +667,11 @@ angular
           PersonaAtiendeSitio: vm.PersonaAtiendeSitio,
           TelefonoAtiendeSitio: vm.TelefonoAtiendeSitio,
           CelularAtiendeSitio: vm.CelularAtiendeSitio,
-          EmailAtiendeSitio: vm.EmailAtiendeSitio
+          EmailAtiendeSitio: vm.EmailAtiendeSitio,
+          PersonaAtiendeSitio2: vm.PersonaAtiendeSitio2,
+          TelefonoAtiendeSitio2: vm.TelefonoAtiendeSitio2,
+          CelularAtiendeSitio2: vm.CelularAtiendeSitio2,
+          EmailAtiendeSitio2: vm.EmailAtiendeSitio2
         };
       }
 

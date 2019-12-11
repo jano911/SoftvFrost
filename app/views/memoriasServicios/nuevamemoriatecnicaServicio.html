@@ -91,10 +91,11 @@
           <button class="btn btn-primary btn-sm" ng-show="$ctrl.showguardar" title="Crear una nueva memoria técnica"
             type="submit">
             Guardar</button>
-          <button title="Eliminar Memoria Técnica" type="button" class="btn btn-danger btn-sm" ng-show="$ctrl.showeliminar"
-            name="button" ng-click="$ctrl.EliminaMemoria()">Eliminar</button>
-          <button title="Regresar a atenciones telefónicas" type="button" ui-sref="home.memoria.memoriastecnicasServicio"
-            class="btn btn-default-bright btn-sm" name="button">Salir</button>
+          <button title="Eliminar Memoria Técnica" type="button" class="btn btn-danger btn-sm"
+            ng-show="$ctrl.showeliminar" name="button" ng-click="$ctrl.EliminaMemoria()">Eliminar</button>
+          <button title="Regresar a atenciones telefónicas" type="button"
+            ui-sref="home.memoria.memoriastecnicasServicio" class="btn btn-default-bright btn-sm"
+            name="button">Salir</button>
         </div>
       </div>
     </div>
@@ -110,24 +111,25 @@
               <label class="col-sm-3 control-label"># Reporte</label>
               <div class="col-sm-4">
                 <input type="number" class="form-control input-sm" name="numeroqueja" ng-disabled="$ctrl.blockorden"
-                  ng-model="$ctrl.numeroqueja" validate-on="dirty" invalid-message="'El número de la orden es obligatorio'"
-                  placeholder="Ingresa #Reporte" required />
+                  ng-model="$ctrl.numeroqueja" validate-on="dirty"
+                  invalid-message="'El número de la orden es obligatorio'" placeholder="Ingresa #Reporte" required />
               </div>
               <div class="col-sm-3">
-                <button type="button" ng-disabled="$ctrl.blockorden" class="btn ink-reaction btn-xs btn-info" ng-click="$ctrl.validar()">Validar</button>
+                <button type="button" ng-disabled="$ctrl.blockorden" class="btn ink-reaction btn-xs btn-info"
+                  ng-click="$ctrl.validar()">Validar</button>
               </div>
             </div>
 
             <div class="form-group row ">
               <label class="col-sm-3 control-label">Folio instalación</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control input-sm" ng-disabled="true" name="numerofolio" placeholder="Ingresa # folio"
-                  ng-model="$ctrl.numerofolio" />
+                <input type="text" class="form-control input-sm" ng-disabled="true" name="numerofolio"
+                  placeholder="Ingresa # folio" ng-model="$ctrl.numerofolio" />
               </div>
               <div class="col-sm-3" ng-if="$ctrl.permitecheck">
                 <label class="checkbox-inline checkbox-styled checkbox-info">
-                  <input type="checkbox" ng-model="$ctrl.generafolio" name="generafolio" ng-disabled="$ctrl.blockgenerafolio"
-                    ng-change="$ctrl.obtenfolio()">
+                  <input type="checkbox" ng-model="$ctrl.generafolio" name="generafolio"
+                    ng-disabled="$ctrl.blockgenerafolio" ng-change="$ctrl.obtenfolio()">
                   <span>{{$ctrl.mensajefolio}}</span>
                 </label>
               </div>
@@ -138,8 +140,8 @@
               <label class="col-sm-3 control-label">Contrato</label>
               <div class="col-sm-4">
                 <input type="text" class="form-control input-sm" ng-disabled="$ctrl.blockcontrato" name="contrato"
-                  ng-model="$ctrl.contratocompania" validate-on="dirty" invalid-message="'El número de la orden es obligatorio'"
-                  name="password" placeholder="" required />
+                  ng-model="$ctrl.contratocompania" validate-on="dirty"
+                  invalid-message="'El número de la orden es obligatorio'" name="password" placeholder="" required />
               </div>
               <div class="col-sm-3">
                 <label class="checkbox-inline checkbox-styled checkbox-info">
@@ -187,9 +189,9 @@
               <div class="form-group row ">
                 <label class="col-sm-5 control-label">Hora de llegada</label>
                 <div class="col-sm-7">
-                  <input type="text" placeholder="hh:mm" ui-mask="99:99" model-view-value="true" class="form-control input-sm"
-                    name="horallegada" ng-model="$ctrl.horallegada" validate-on="dirty" invalid-message="'La hora es obligatoria'"
-                    placeholder="" required />
+                  <input type="text" placeholder="hh:mm" ui-mask="99:99" model-view-value="true"
+                    class="form-control input-sm" name="horallegada" ng-model="$ctrl.horallegada" validate-on="dirty"
+                    invalid-message="'La hora es obligatoria'" placeholder="" required />
                 </div>
 
               </div>
@@ -201,8 +203,8 @@
                 <label class="col-sm-5 control-label">Hora de salida</label>
                 <div class="col-sm-7">
                   <input type="text" class="form-control input-sm" model-view-value="true" name="horasalida"
-                    placeholder="hh:mm" ui-mask="99:99" ng-model="$ctrl.horasalida" validate-on="dirty" invalid-message="'La hora es obligatoria'"
-                    placeholder="" required />
+                    placeholder="hh:mm" ui-mask="99:99" ng-model="$ctrl.horasalida" validate-on="dirty"
+                    invalid-message="'La hora es obligatoria'" placeholder="" required />
                 </div>
               </div>
             </div>
@@ -211,7 +213,8 @@
               <div class="form-group row ">
                 <label class="col-sm-5 control-label">Usuario</label>
                 <div class="col-sm-7">
-                  <input type="text" ng-disabled="true" name="usuario" class="form-control input-sm" ng-model="$ctrl.usuariosistema">
+                  <input type="text" ng-disabled="true" name="usuario" class="form-control input-sm"
+                    ng-model="$ctrl.usuariosistema">
                 </div>
               </div>
             </div>
@@ -220,9 +223,9 @@
               <div class="form-group row ">
                 <label class="col-sm-5 control-label">Nombre de Instalador</label>
                 <div class="col-sm-7">
-                  <select ng-options="item as item.Nombre for item in $ctrl.listTecnicos track by item.IdEntidad" class="form-control input-sm"
-                    ng-model="$ctrl.instalador" name="nombreinstalador" validate-on="dirty" invalid-message="'El nombre es obligatorio'"
-                    required>
+                  <select ng-options="item as item.Nombre for item in $ctrl.listTecnicos track by item.IdEntidad"
+                    class="form-control input-sm" ng-model="$ctrl.instalador" name="nombreinstalador"
+                    validate-on="dirty" invalid-message="'El nombre es obligatorio'" required>
                     <option value="">Selecciona</option>
                   </select>
                 </div>
@@ -244,7 +247,8 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Cliente</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="cliente" ng-model="$ctrl.cliente">
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="cliente"
+                        ng-model="$ctrl.cliente">
                     </div>
                   </div>
 
@@ -262,27 +266,30 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">C.P</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="codigopostal" ng-model="$ctrl.codigopostal">
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="codigopostal"
+                        ng-model="$ctrl.codigopostal">
                     </div>
                   </div>
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Teléfono</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="telefono" ng-model="$ctrl.telefono">
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="telefono"
+                        ng-model="$ctrl.telefono">
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Celular</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="celular" ng-model="$ctrl.celular">
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="celular"
+                        ng-model="$ctrl.celular">
                     </div>
                   </div>
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Domicilio de notificación</label>
                     <div class="col-sm-7">
-                      <textarea type="text" class="form-control input-sm" name="notificacion" ng-model="$ctrl.domicilionotificacion"
-                        rows="3"></textarea>
+                      <textarea type="text" class="form-control input-sm" name="notificacion"
+                        ng-model="$ctrl.domicilionotificacion" rows="3"></textarea>
                     </div>
                   </div>
                   <div class="form-group row ">
@@ -291,31 +298,35 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Nombre de la Persona</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="NombreAtiendeSitio" ng-model="$ctrl.PersonaAtiendeSitio">
+                      <input type="text" class="form-control input-sm" name="NombreAtiendeSitio"
+                        ng-model="$ctrl.PersonaAtiendeSitio">
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Teléfono (Para llamada de Whatsapp)</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="TelefonoAtiendeSitio" ng-model="$ctrl.TelefonoAtiendeSitio"
-                      ui-mask="999-999-9999" minlength="10" ui-mask-placeholder ui-mask-placeholder-char="_">
+                      <input type="text" class="form-control input-sm" name="TelefonoAtiendeSitio"
+                        ng-model="$ctrl.TelefonoAtiendeSitio" ui-mask="999-999-9999" minlength="10" ui-mask-placeholder
+                        ui-mask-placeholder-char="_">
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Celular</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="CelularAtiendeSitio" ng-model="$ctrl.CelularAtiendeSitio"
-                      ui-mask="999-999-9999" minlength="10" ui-mask-placeholder ui-mask-placeholder-char="_">
+                      <input type="text" class="form-control input-sm" name="CelularAtiendeSitio"
+                        ng-model="$ctrl.CelularAtiendeSitio" ui-mask="999-999-9999" minlength="10" ui-mask-placeholder
+                        ui-mask-placeholder-char="_">
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Email</label>
                     <div class="col-sm-7">
-                      <input type="email" class="form-control input-sm" name="EmailAtiendeSitio" ng-model="$ctrl.EmailAtiendeSitio"
-                      validate-on="dirty" invalid-message="'Formato de correo no valido.'">
+                      <input type="email" class="form-control input-sm" name="EmailAtiendeSitio"
+                        ng-model="$ctrl.EmailAtiendeSitio" validate-on="dirty"
+                        invalid-message="'Formato de correo no valido.'">
                     </div>
                   </div>
                   <!-- <div class="form-group row ">
@@ -330,31 +341,32 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Localidad</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="localidad" ng-model="$ctrl.localidad"
-                        placeholder="" />
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="localidad"
+                        ng-model="$ctrl.localidad" placeholder="" />
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Municipio</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="municipio" ng-disabled="true" ng-model="$ctrl.municipio"
-                        placeholder="" />
+                      <input type="text" class="form-control input-sm" name="municipio" ng-disabled="true"
+                        ng-model="$ctrl.municipio" placeholder="" />
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Estado</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="estado" ng-model="$ctrl.estado"
-                        placeholder="" />
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="estado"
+                        ng-model="$ctrl.estado" placeholder="" />
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Nombre persona que valida el servicio:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="nombrevalida" ng-model="$ctrl.PersonaValidaServicio">
+                      <input type="text" class="form-control input-sm" name="nombrevalida"
+                        ng-model="$ctrl.PersonaValidaServicio">
                     </div>
                   </div>
 
@@ -368,7 +380,8 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label"> Estatus Técnico del Modem:</label>
                     <div class="col-sm-7">
-                      <select invalid-message="'El campo es obligatorio'" required ng-options="item as item.Descripcion for item in $ctrl.listEstatus track by item.IdEstatusTecnico"
+                      <select invalid-message="'El campo es obligatorio'" required
+                        ng-options="item as item.Descripcion for item in $ctrl.listEstatus track by item.IdEstatusTecnico"
                         class="form-control input-sm" name="estatustecnico" ng-model="$ctrl.estatustecnico">
                         <option value="">selecciona</option>
                       </select>
@@ -393,7 +406,47 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Plan de servicio:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="plan" ng-disabled="true" ng-model="$ctrl.plan">
+                      <input type="text" class="form-control input-sm" name="plan" ng-disabled="true"
+                        ng-model="$ctrl.plan">
+                    </div>
+                  </div>
+
+                  <div class="form-group row ">
+                    <b class="col-sm-12 text-center text-info"> Datos de la persona que atiende al técnico en sitio #2
+                      (Opcional)</b>
+                  </div>
+                  <div class="form-group row ">
+                    <label class="col-sm-5 control-label">Nombre de la Persona</label>
+                    <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" name="NombreAtiendeSitio2"
+                        ng-model="$ctrl.PersonaAtiendeSitio2">
+                    </div>
+                  </div>
+
+                  <div class="form-group row ">
+                    <label class="col-sm-5 control-label">Teléfono (Para llamada de Whatsapp)</label>
+                    <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" name="TelefonoAtiendeSitio2"
+                        ng-model="$ctrl.TelefonoAtiendeSitio2" ui-mask="999-999-9999" minlength="10" ui-mask-placeholder
+                        ui-mask-placeholder-char="_">
+                    </div>
+                  </div>
+
+                  <div class="form-group row ">
+                    <label class="col-sm-5 control-label">Celular</label>
+                    <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" name="CelularAtiendeSitio2"
+                        ng-model="$ctrl.CelularAtiendeSitio2" ui-mask="999-999-9999" minlength="10" ui-mask-placeholder
+                        ui-mask-placeholder-char="_">
+                    </div>
+                  </div>
+
+                  <div class="form-group row ">
+                    <label class="col-sm-5 control-label">Email</label>
+                    <div class="col-sm-7">
+                      <input type="email" class="form-control input-sm" name="EmailAtiendeSitio2"
+                        ng-model="$ctrl.EmailAtiendeSitio2" validate-on="dirty"
+                        invalid-message="'Formato de correo no valido.'">
                     </div>
                   </div>
 
@@ -413,7 +466,8 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Beam:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="beam" ng-model="$ctrl.beam">
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="beam"
+                        ng-model="$ctrl.beam">
                     </div>
                   </div>
 
@@ -421,15 +475,16 @@
                     <label class="col-sm-5 control-label">Fecha Activación:</label>
                     <div class="col-sm-7">
                       <!--<input type="text"  class="form-control input-sm" name="fechaactivacion" ng-model="$ctrl.fechaactivacion" ng-disabled="true">-->
-                      <input class="form-control input-sm" name="fechaactivacion" ng-model="$ctrl.fechaactivacion" type="date"
-                        ng-disabled="true" />
+                      <input class="form-control input-sm" name="fechaactivacion" ng-model="$ctrl.fechaactivacion"
+                        type="date" ng-disabled="true" />
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">SAN:</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" ng-disabled="true" name="SAN" ng-model="$ctrl.SAN">
+                      <input type="text" class="form-control input-sm" ng-disabled="true" name="SAN"
+                        ng-model="$ctrl.SAN">
                     </div>
                   </div>
 
@@ -438,16 +493,16 @@
                     <label class="col-sm-5 control-label">Latitud:</label>
                     <div class="col-sm-7">
                       <input type="text" class="form-control input-sm" ng-pattern="/^-?[0-9]+(\.[0-9]{1,6})?$/"
-                        validate-on="dirty" required invalid-message="'La latitud no es valida'" required-message="La latitud  es obligatoria"
-                        name="latitud" ng-model="$ctrl.latitud">
+                        validate-on="dirty" required invalid-message="'La latitud no es valida'"
+                        required-message="La latitud  es obligatoria" name="latitud" ng-model="$ctrl.latitud">
                     </div>
                   </div>
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Longitud:</label>
                     <div class="col-sm-7">
                       <input type="text" class="form-control input-sm" ng-pattern="/^-?[0-9]+(\.[0-9]{1,6})?$/"
-                        validate-on="dirty" required invalid-message="'La longitud no es valida'" required-message="La longitud  es obligatoria"
-                        name="longitud" ng-model="$ctrl.longitud">
+                        validate-on="dirty" required invalid-message="'La longitud no es valida'"
+                        required-message="La longitud  es obligatoria" name="longitud" ng-model="$ctrl.longitud">
                     </div>
                   </div>
                   <div class="form-group row ">
@@ -471,31 +526,37 @@
                       <div class="form-group row ">
                         <label class="col-sm-5 control-label">Código de Estado</label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control input-sm" ng-disabled="true" name="CodigodeEstado" ng-model="$ctrl.CodigodeEstado">
+                          <input type="text" class="form-control input-sm" ng-disabled="true" name="CodigodeEstado"
+                            ng-model="$ctrl.CodigodeEstado">
                         </div>
                       </div>
                       <div class="form-group row ">
                         <label class="col-sm-5 control-label">SQF</label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control input-sm" ng-disabled="true" name="SQFVS" ng-model="$ctrl.SQFVS">
+                          <input type="text" class="form-control input-sm" ng-disabled="true" name="SQFVS"
+                            ng-model="$ctrl.SQFVS">
                         </div>
                       </div>
                     </div>
                     <div class="col-md-2">
-                      <button type="button" title="Actualizar datos" class="btn ink-reaction btn-xs btn-info" ng-click="$ctrl.ActualizarDatosHughes()"><i class="fa fa-retweet"></i></button>
+                      <button type="button" title="Actualizar datos" class="btn ink-reaction btn-xs btn-info"
+                        ng-click="$ctrl.ActualizarDatosHughes()"><i class="fa fa-retweet"></i></button>
                     </div>
                   </div>
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Transmit Rate</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="TransmitRate" ng-model="$ctrl.TransmitRate">
+                      <input type="text" class="form-control input-sm" name="TransmitRate"
+                        ng-model="$ctrl.TransmitRate">
                     </div>
                   </div>
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Power Attenuation</label>
                     <div class="col-sm-7">
-                      <select ng-options="item as item.Descripcion for item in $ctrl.PowerAttenuations track by item.IdPower" class="form-control input-sm"
-                        validate-on="dirty" name="PowerAttenuation" ng-model="$ctrl.PowerAttenuation">
+                      <select
+                        ng-options="item as item.Descripcion for item in $ctrl.PowerAttenuations track by item.IdPower"
+                        class="form-control input-sm" validate-on="dirty" name="PowerAttenuation"
+                        ng-model="$ctrl.PowerAttenuation">
                         <option value="">- selecciona -</option>
                       </select>
                     </div>
@@ -511,19 +572,22 @@
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Voltaje Comercial N-T</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="N-T" ng-model="$ctrl.VoltajeComercialNT"></textarea>
+                      <input type="text" class="form-control input-sm" name="N-T"
+                        ng-model="$ctrl.VoltajeComercialNT"></textarea>
                     </div>
                   </div>
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Voltaje Comercial F-T</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="F-T" ng-model="$ctrl.VoltajeComercialFT"></textarea>
+                      <input type="text" class="form-control input-sm" name="F-T"
+                        ng-model="$ctrl.VoltajeComercialFT"></textarea>
                     </div>
                   </div>
                   <div class="form-group row ">
                     <label class="col-sm-5 control-label">Voltaje Comercial F-N</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control input-sm" name="F-N" ng-model="$ctrl.VoltajeComercialFN"></textarea>
+                      <input type="text" class="form-control input-sm" name="F-N"
+                        ng-model="$ctrl.VoltajeComercialFN"></textarea>
                     </div>
                   </div>
                 </div>
@@ -534,7 +598,8 @@
                       <i class="fa fa-picture-o"></i> Imágenes</h4>
                     <div class="col-md-6">
                       <p class="text-primary">Selecciona el tipo de imagen</p>
-                      <select ng-model="$ctrl.tipoimagenValidacion" class="form-control input-sm" ng-options="item as item.Nombre for item in $ctrl.tiposrespValidacion track by item.IdTipo"
+                      <select ng-model="$ctrl.tipoimagenValidacion" class="form-control input-sm"
+                        ng-options="item as item.Nombre for item in $ctrl.tiposrespValidacion track by item.IdTipo"
                         ng-model="selected">
                         <option value="">Selecciona el tipo </option>
                       </select>
@@ -543,7 +608,8 @@
                       <br>
                       <div class="fileUpload btn btn-sm btn-primary" ng-show="$ctrl.tipoimagenValidacion">
                         <span>Elegir archivos</span>
-                        <input type="file" multiple="multiple" id="file" nv-file-select uploader="$ctrl.uploaderVS" class="upload" />
+                        <input type="file" multiple="multiple" id="file" nv-file-select uploader="$ctrl.uploaderVS"
+                          class="upload" />
                       </div>
                     </div>
                     <div class="col-md-12" style="overflow-y: scroll; max-height: 350px;">
@@ -587,28 +653,30 @@
                     <div class="col-md-12" style="overflow-y: scroll; max-height: 350px;">
                       <table class="table">
                         <thead>
-  
+
                           <th>Tipo de imagen</th>
                           <th>preview</th>
                         </thead>
                         <tbody>
                           <tr ng-repeat="x in $ctrl.Lista_evidenciasVS">
-  
+
                             <td>{{x.Tipo_}}</td>
                             <td>
-  
-                              <img class="img-thumbnail" ng-click="$ctrl.openLightboxModal($index)" ng-src="{{x.RutaCompleta}}" alt="" style="width: 100px; height: 100px; ">
+
+                              <img class="img-thumbnail" ng-click="$ctrl.openLightboxModal($index)"
+                                ng-src="{{x.RutaCompleta}}" alt="" style="width: 100px; height: 100px; ">
                             </td>
                             <td>
-                              <button type="button" ng-click="$ctrl.BorraImagenVS($index)" ng-disabled="$ctrl.detalle" class="btn btn-xs btn-danger">
+                              <button type="button" ng-click="$ctrl.BorraImagenVS($index)" ng-disabled="$ctrl.detalle"
+                                class="btn btn-xs btn-danger">
                                 <i class="fa fa-trash"></i> Eliminar</button>
                             </td>
                           </tr>
                         </tbody>
-  
+
                       </table>
                     </div>
-  
+
                   </div>
                 </div>
               </div>
@@ -622,7 +690,8 @@
                   <div class="col-md-6">
                     <div class="row">
                       <label class="checkbox-inline checkbox-styled checkbox-info">
-                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkints" ng-model="$ctrl.Instalacion">
+                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkints"
+                          ng-model="$ctrl.Instalacion">
                         <span>Instalación</span>
                       </label>
                     </div>
@@ -631,7 +700,8 @@
                   <div class="col-md-6">
                     <div class="row">
                       <label class="checkbox-inline checkbox-styled checkbox-info">
-                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkmant" ng-model="$ctrl.Mantenimiento">
+                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkmant"
+                          ng-model="$ctrl.Mantenimiento">
                         <span>Mantenimiento</span>
                       </label>
                     </div>
@@ -640,7 +710,8 @@
                   <div class="col-md-6">
                     <div class="row">
                       <label class="checkbox-inline checkbox-styled checkbox-info">
-                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkcambio" ng-model="$ctrl.CambioComponentes">
+                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkcambio"
+                          ng-model="$ctrl.CambioComponentes">
                         <span>Cambio de componentes</span>
                       </label>
                     </div>
@@ -649,7 +720,8 @@
                   <div class="col-md-6">
                     <div class="row">
                       <label class="checkbox-inline checkbox-styled checkbox-info">
-                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checksurvey" ng-model="$ctrl.SiteSurvey">
+                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checksurvey"
+                          ng-model="$ctrl.SiteSurvey">
                         <span>Site Survey</span>
                       </label>
                     </div>
@@ -658,7 +730,8 @@
                   <div class="col-md-6">
                     <div class="row">
                       <label class="checkbox-inline checkbox-styled checkbox-info">
-                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkdemo" ng-model="$ctrl.InstalacionDemo">
+                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkdemo"
+                          ng-model="$ctrl.InstalacionDemo">
                         <span>Instalación Demo/Piloto</span>
                       </label>
                     </div>
@@ -667,7 +740,8 @@
                   <div class="col-md-6">
                     <div class="row">
                       <label class="checkbox-inline checkbox-styled checkbox-info">
-                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkreubi" ng-model="$ctrl.Reubicacion">
+                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkreubi"
+                          ng-model="$ctrl.Reubicacion">
                         <span>Reubicación</span>
                       </label>
                     </div>
@@ -676,7 +750,8 @@
                   <div class="col-md-6">
                     <div class="row">
                       <label class="checkbox-inline checkbox-styled checkbox-info">
-                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkapunta" ng-model="$ctrl.Apuntamiento">
+                        <input type="checkbox" ng-disabled="$ctrl.detalle" name="checkapunta"
+                          ng-model="$ctrl.Apuntamiento">
                         <span>Apuntamiento</span>
                       </label>
                     </div>
@@ -686,7 +761,8 @@
 
                 <div class="col-md-4">
                   <p>Detalles:</p>
-                  <textarea rows="6" class="form-control input-sm" name="detalleinstalacion" ng-model="$ctrl.detalleinstalacion"
+                  <textarea rows="6" class="form-control input-sm" name="detalleinstalacion"
+                    ng-model="$ctrl.detalleinstalacion"
                     placeholder="Redacta brevemente los detalles de la instalación"></textarea>
 
                 </div>
@@ -703,21 +779,24 @@
                   <div class="form-group row ">
                     <label class="col-sm-3 control-label">Neutro-tierra :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control input-sm" name="vcneutrotierra" ng-model="$ctrl.vcneutrotierra">
+                      <input type="text" class="form-control input-sm" name="vcneutrotierra"
+                        ng-model="$ctrl.vcneutrotierra">
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-3 control-label">Fase-tierra :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control input-sm" name="vcfasetierra" ng-model="$ctrl.vcfasetierra">
+                      <input type="text" class="form-control input-sm" name="vcfasetierra"
+                        ng-model="$ctrl.vcfasetierra">
                     </div>
                   </div>
 
                   <div class="form-group row ">
                     <label class="col-sm-3 control-label">Fase-Neutro :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control input-sm" ng-model="$ctrl.vcfaseneutro" name="vcfaseneutro">
+                      <input type="text" class="form-control input-sm" ng-model="$ctrl.vcfaseneutro"
+                        name="vcfaseneutro">
                     </div>
                   </div>
 
@@ -730,7 +809,8 @@
                   <div class="form-group row ">
                     <label class="col-sm-3 control-label">Neutro-tierra :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control input-sm" name="upcneutrotierra" ng-model="$ctrl.upcneutrotierra">
+                      <input type="text" class="form-control input-sm" name="upcneutrotierra"
+                        ng-model="$ctrl.upcneutrotierra">
 
                     </div>
                   </div>
@@ -738,7 +818,8 @@
                   <div class="form-group row ">
                     <label class="col-sm-3 control-label">Fase-tierra :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control input-sm" ng-model="$ctrl.upcfasetierra" name="upcfasetierra">
+                      <input type="text" class="form-control input-sm" ng-model="$ctrl.upcfasetierra"
+                        name="upcfasetierra">
 
                     </div>
                   </div>
@@ -746,7 +827,8 @@
                   <div class="form-group row ">
                     <label class="col-sm-3 control-label">Fase-Neutro :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control input-sm" name="upcfaseneutro" ng-model="$ctrl.upcfaseneutro">
+                      <input type="text" class="form-control input-sm" name="upcfaseneutro"
+                        ng-model="$ctrl.upcfaseneutro">
                     </div>
                   </div>
 
@@ -799,8 +881,8 @@
                   <div class="form-group row ">
                     <label class="col-sm-3 control-label">Valor de SQF Instalación :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control input-sm" name="sqfinstalacion" ng-model="$ctrl.SQFInstalacion"
-                        ng-disabled="true">
+                      <input type="text" class="form-control input-sm" name="sqfinstalacion"
+                        ng-model="$ctrl.SQFInstalacion" ng-disabled="true">
                     </div>
                   </div>
                   <div class="form-group row ">
@@ -889,7 +971,8 @@
                   <div class="col-md-4">
                     <div class="col-md-12">
                       Equipo a surtir
-                      <select class="form-control input-sm" ng-options="item as item.Nombre for item in $ctrl.EquiposSustituir track by item.IdEquipo"
+                      <select class="form-control input-sm"
+                        ng-options="item as item.Nombre for item in $ctrl.EquiposSustituir track by item.IdEquipo"
                         ng-model="$ctrl.EquipoSustituir" name="EquipoSustituir" ng-change="$ctrl.detalleTecnico()">
                         <option value="">- Selecciona equipo -</option>
                       </select>
@@ -898,7 +981,8 @@
                     <div class="col-md-12">
                       Serie Anterior
                       <!--<input type="text" class="form-control" name="serieanterior" ng-model="$ctrl.serieanterior">-->
-                      <select class="form-control input-sm" ng-options="item as item.Descripcion for item in $ctrl.AparatosAnterior track by item.Clv_CableModem"
+                      <select class="form-control input-sm"
+                        ng-options="item as item.Descripcion for item in $ctrl.AparatosAnterior track by item.Clv_CableModem"
                         ng-model="$ctrl.AparatoAnterior" name="EquipoSustituirAnterior">
                         <option value="">- Selecciona aparato -</option>
                       </select>
@@ -906,14 +990,16 @@
                     <div class="col-md-12">
                       Serie Nueva
                       <!--<input type="text" class="form-control " ng-model="$ctrl.serienueva" name="serienueva">-->
-                      <select class="form-control input-sm" ng-options="item as item.Descripcion for item in $ctrl.AparatosNuevo track by item.Clv_CableModem"
+                      <select class="form-control input-sm"
+                        ng-options="item as item.Descripcion for item in $ctrl.AparatosNuevo track by item.Clv_CableModem"
                         ng-model="$ctrl.AparatoNuevo" name="EquipoSustituirNuevo">
                         <option value="">- Selecciona aparato -</option>
                       </select>
                     </div>
                     <div class="col-md-12">
                       <br>
-                      <button type="button" class="btn btn-success btn-sm" ng-disabled="$ctrl.detalle" ng-click="$ctrl.cambioAparato()">Agregar</button>
+                      <button type="button" class="btn btn-success btn-sm" ng-disabled="$ctrl.detalle"
+                        ng-click="$ctrl.cambioAparato()">Agregar</button>
                     </div>
 
                   </div>
@@ -933,7 +1019,8 @@
                             <td>{{s.SerieAnterior}}</td>
                             <td>{{s.SerieNueva}}</td>
                             <td>
-                              <button type="button" ng-disabled="$ctrl.detalle" class="btn btn-danger btn-xs" ng-click="$ctrl.eliminaaparato($index)">
+                              <button type="button" ng-disabled="$ctrl.detalle" class="btn btn-danger btn-xs"
+                                ng-click="$ctrl.eliminaaparato($index)">
                                 <i class="fa fa-trash"></i> Eliminar</button>
                             </td>
                           </tr>
@@ -958,14 +1045,16 @@
                 <div class="col-md-6">
                   <h5 class="text-primary text-center">Selecciona el aparato</h5>
                   <div class="col-md-12">
-                    <select class="form-control" ng-model="$ctrl.DTH" name="dth" ng-options="item as item.Descripcion for item in $ctrl.listSTB track by item.Clv_CableModem">
+                    <select class="form-control" ng-model="$ctrl.DTH" name="dth"
+                      ng-options="item as item.Descripcion for item in $ctrl.listSTB track by item.Clv_CableModem">
                       <option value="selecciona"></option>
                     </select>
                     <p class="text-muted">puedes agregar como max.3 aparatos</p>
                   </div>
                   <div class="col-md-12 text-center">
                     <br>
-                    <button type="button" class="btn btn-success btn-sm" ng-disabled="$ctrl.detalle" ng-click="$ctrl.addAparatodig()">Agregar
+                    <button type="button" class="btn btn-success btn-sm" ng-disabled="$ctrl.detalle"
+                      ng-click="$ctrl.addAparatodig()">Agregar
                       stb</button>
                   </div>
                 </div>
@@ -1005,7 +1094,8 @@
                     <i class="fa fa-picture-o"></i> Subir Imagenes</h4>
                   <div class="col-md-6">
                     <p class="text-primary">Selecciona el tipo de imagen</p>
-                    <select ng-model="$ctrl.tipoimagen" name="tipoimagen" class="form-control input-sm" ng-options="item as item.Nombre for item in $ctrl.tiposresp track by item.IdTipo"
+                    <select ng-model="$ctrl.tipoimagen" name="tipoimagen" class="form-control input-sm"
+                      ng-options="item as item.Nombre for item in $ctrl.tiposresp track by item.IdTipo"
                       ng-model="selected">
                       <option value="">Selecciona el tipo </option>
                     </select>
@@ -1015,8 +1105,8 @@
                     <br>
                     <div class="fileUpload btn btn-sm btn-primary" ng-show="$ctrl.tipoimagen">
                       <span>Elegir archivos</span>
-                      <input type="file" multiple="multiple" name="elegirarchivo" id="file" nv-file-select uploader="$ctrl.uploader"
-                        class="upload" />
+                      <input type="file" multiple="multiple" name="elegirarchivo" id="file" nv-file-select
+                        uploader="$ctrl.uploader" class="upload" />
                     </div>
 
 
@@ -1080,8 +1170,8 @@
                           <td>{{x.Tipo_}}</td>
                           <td>
 
-                            <img class="img-thumbnail" ng-click="$ctrl.openLightboxModal($index)" ng-src="{{x.RutaCompleta}}"
-                              alt="" style="width: 100px; height: 100px; ">
+                            <img class="img-thumbnail" ng-click="$ctrl.openLightboxModal($index)"
+                              ng-src="{{x.RutaCompleta}}" alt="" style="width: 100px; height: 100px; ">
                           </td>
                           <td>
                             <button type="button" ng-click="$ctrl.BorraImagen($index)" ng-disabled="$ctrl.detalle"
