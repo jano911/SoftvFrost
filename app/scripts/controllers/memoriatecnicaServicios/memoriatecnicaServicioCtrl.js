@@ -1,9 +1,12 @@
 'use strict';
+
+/// Modulo para el controlador de Memoria Técnica Reportes
 angular
   .module('softvFrostApp')
   .controller('memoriatecnicaServicioCtrl', function ($state, ngNotify, memoriaFactory, memoriaServicioFactory, moment, $firebaseArray,
     firebase, globalService, $q, $window, $localStorage, $uibModal) {
 
+    /// Inicializa el controlador, ejecuta procedimientos para obtener la lista de memorias técnicas registradas
     function initialData() {
       vm.RolUsuario = $localStorage.currentUser.idRol;
       BuscaMemoriaTecnica(0);
@@ -13,6 +16,8 @@ angular
       });
     }
 
+    /// Obtiene el listado de memorias técnicas de reportes y su información relacionada para mostrarla en el
+    /// sistema
     function BuscaMemoriaTecnica(op) {
       var params = {
         'Folio': (op === 1) ? vm.folio : '',
@@ -36,7 +41,7 @@ angular
         });
     }
 
-
+    /// Genera el reporte de la memoria en formato PDF para poder exportarlo
     function reportepdf(id) {
 
       vm.url = '';
@@ -79,6 +84,7 @@ angular
 
     }
 
+    /// Genera el reporte de la memoria técnica seleccionada en formato XLS para poder exportarlo
     function getreportexls(id) {
       vm.url = '';
       memoriaServicioFactory.GetReportexls(id).then(function (data) {
@@ -96,6 +102,7 @@ angular
 
     }
 
+    /// Genera una nueva memoria técnica de reporte en la base de datos de Firebase
     function add() {
       alert('add');
       var ref = firebase
@@ -112,6 +119,7 @@ angular
       });
     }
 
+    /// Elimina el nodo correspondiente de la base de datos de Firebase
     function deletechild() {
       var id = vm.deletetest;
       GetdataFire().then(function (result) {
@@ -132,6 +140,7 @@ angular
       .ref()
       .child('messages');
 
+    /// Obtiene la información registrada en la base de datos de Firebase
     function GetdataFire() {
       var defered = $q.defer();
       var promise = defered.promise;
@@ -148,6 +157,7 @@ angular
       return promise;
     }
 
+    /// Elimina la información del registro correspondiente de Firebase
     function deleteFile(index) {
       var defered = $q.defer();
       var promise = defered.promise;
@@ -164,7 +174,7 @@ angular
 
     }
 
-
+    /// Muestra la lista de memorias técnicas en base a los filtros de búsqueda seleccionados
     function FiltrarLista() {
       var Lista = [];
       vm.listTecnicos.forEach(function (item) {

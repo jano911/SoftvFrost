@@ -1,4 +1,6 @@
 'use strict';
+
+/// Módulo para el controlador Edita Servicio
 angular.module('softvFrostApp').controller('EditaServicioCtrl', EditaServicioCtrl);
 
 function EditaServicioCtrl(terminalFactory, $state, ngNotify, $stateParams) {
@@ -6,7 +8,7 @@ function EditaServicioCtrl(terminalFactory, $state, ngNotify, $stateParams) {
     vm.titulo = 'Edita Servicio';
     vm.GuardarServicio = GuardarServicio;
 
-
+    /// Inicializa el controlador, obtiene los datos del servicio a editar
     this.$onInit = function () {
         var parametros = {};
         parametros.IdServicio = $stateParams.id;
@@ -22,6 +24,7 @@ function EditaServicioCtrl(terminalFactory, $state, ngNotify, $stateParams) {
         });
     }
 
+    /// Actualiza y guarda los cambios realizados al servicio correspondiente
     function GuardarServicio() {
         var obj = {};
         obj.IdServicio = vm.IdServicio;

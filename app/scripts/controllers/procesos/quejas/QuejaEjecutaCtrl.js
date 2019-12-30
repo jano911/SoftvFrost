@@ -1,8 +1,12 @@
 'use strict';
+
+/// Modulo del controlador Ejecutar Queja
 angular
   .module('softvFrostApp')
   .controller('QuejaEjecutaCtrl', function ($state, ngNotify, DescargarMaterialFactory, $location, $uibModal, ordenesFactory, $stateParams, atencionFactory, quejasFactory) {
 
+    /// Inicializa el controlador, obtiene la información de la queja a ejecutar y realiza los procedimientos para
+    /// ejecutarla
     function InitalData() {
       vm.clv_queja = $stateParams.id;
       vm.contrato = $stateParams.contrato;
@@ -184,6 +188,7 @@ angular
       });
     }
 
+    /// Crea el objeto de tipo date con el día, mes y año de la fecha recibida
     function dateParse(date) {
       var realdate = date.split(" ")
       var strDate = realdate[0];
@@ -194,7 +199,7 @@ angular
       }
     }
 
-
+    /// Obtiene la hora de la fecha recibida
     function getTime(date) {
       var fejecucion = date.split(' ');
 
@@ -211,7 +216,7 @@ angular
       }
     }
 
-
+    /// Abre la vista de Bonificaciones con acciones en base a su controlador
     function abrirBonificacion() {
       var detalle = {};
       detalle.Block = true;
@@ -234,12 +239,13 @@ angular
       });
     }
 
+    /// Devuelve el objeto date con el día, mes y año de la cadena de fecha recibida
     function toDate(dateStr) {
       var parts = dateStr.split("/");
       return new Date(parts[2], parts[1] - 1, parts[0]);
     }
 
-
+    /// Valida que las fechas recibidas sean correctas en formato y en comparación entre ellas
     function ValidaFecha(fechaIngresada, fechasolicitud) {
       var _fechaHoy = new Date();
       var _fechaIngresada = toDate(fechaIngresada);
@@ -253,6 +259,7 @@ angular
 
     }
 
+    /// Asigna valores correspondientes dependiendo del estatus de la queja si es que aplica el bloqueo
     function Bloqueo(aplicabloqueo) {
       if (vm.Estatus == 'E') {
         vm.FEjecucion = false;
@@ -324,6 +331,7 @@ angular
       }
     }
 
+    /// Cambia el status de la queja
     function CambiaEstatus() {
       console.log('CambiaEstatus-DateRep: ', DateRep);
       vm.FechaEjecucion = DateRep.FEjec;
@@ -339,6 +347,7 @@ angular
       Bloqueo();
     }
 
+    /// Realiza los procedimientos y configuraciones correspondientes para la ejecución de quejas
     function Ejecutaqueja() {
       console.log("F2: " + vm.Fechavisita2);
       quejasFactory.ValidaQueja(vm.clv_queja).then(function (data) {
@@ -485,7 +494,7 @@ angular
       });
     }
 
-
+    /// Muestra la vista correspondiente a la agenda para quejas
     function MuestraAgenda() {
 
       var options = {};
@@ -512,6 +521,7 @@ angular
       });
     }
 
+    /// Muestra la vista de avances
     function Avances() {
       var options = {};
       options.ClvOrden = vm.clv_queja;
@@ -535,7 +545,7 @@ angular
 
     }
 
-
+    /// Obtiene la información correspondiente para abrir la vista para la descarga de material
     function DescargaMaterial() {
 
       if (vm.Tecnico == null) ngNotify.set('Seleccione un técnico para continuar', 'warn');

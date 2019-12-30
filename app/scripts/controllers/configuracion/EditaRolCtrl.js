@@ -1,8 +1,12 @@
 'use strict';
+
+/// Módulo para el controlador Edita Rol
 angular.module('softvFrostApp').controller('EditaRolCtrl', EditaRolCtrl);
 
 function EditaRolCtrl(usuarioFactory, rolFactory, $state, ngNotify, $stateParams, terminalFactory) {
 
+  /// Inicializa el controlador, obtiene los datos del rol a ser editado junto con sus comandos para aplicar
+  /// correspondientes
   function init() {
     var id = $stateParams.id;
     rolFactory.GetRoleById(id).then(function (data) {
@@ -30,6 +34,7 @@ function EditaRolCtrl(usuarioFactory, rolFactory, $state, ngNotify, $stateParams
     });
   };
 
+  /// Actualiza y guarda los cambios realizados al rol correspondiente
   function GuardarRol() {
     var obj = {};
 
